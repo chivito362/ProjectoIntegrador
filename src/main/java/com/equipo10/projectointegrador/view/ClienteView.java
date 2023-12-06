@@ -24,7 +24,7 @@ public class ClienteView extends javax.swing.JFrame {
     public ClienteView(Controller control) {
         initComponents();
         this.control=control;
-        CargarCB();
+        cargarCB();
     }
 
     /**
@@ -134,6 +134,30 @@ public class ClienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbClienteActionPerformed
+        cargarCampos();
+    }//GEN-LAST:event_cbClienteActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<Cliente> cbCliente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtFechaCreacion;
+    private javax.swing.JTextField txtFechaFin;
+    // End of variables declaration//GEN-END:variables
+private void cargarCB(){
+    control.traerTodosClientes().stream().forEach(cli->cbCliente.addItem(cli));
+}
+private void cargarCampos(){
+    if(cbCliente.getSelectedItem()!=null){
         Optional<Incidente> inci=control.traerTodosIncidentes().stream()
                 .filter(in->in.getCliente().getId_cliente()==((Cliente)cbCliente.getSelectedItem()).getId_cliente())
                 .findFirst();
@@ -153,25 +177,6 @@ public class ClienteView extends javax.swing.JFrame {
             
             txtFechaFin.setText(incidente.getFechaInicio().plusHours(tiempoEsttimado).format(formatter));
         }
-    }//GEN-LAST:event_cbClienteActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<Cliente> cbCliente;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtEstado;
-    private javax.swing.JTextField txtFechaCreacion;
-    private javax.swing.JTextField txtFechaFin;
-    // End of variables declaration//GEN-END:variables
-private void CargarCB(){
-    control.traerTodosClientes().stream().forEach(cli->cbCliente.addItem(cli));
+    }
 }
 }

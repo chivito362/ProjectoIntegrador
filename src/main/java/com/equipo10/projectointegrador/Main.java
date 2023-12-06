@@ -3,6 +3,7 @@ package com.equipo10.projectointegrador;
 import com.equipo10.projectointegrador.controller.Controller;
 import com.equipo10.projectointegrador.model.Cliente;
 import com.equipo10.projectointegrador.model.Especialidad;
+import com.equipo10.projectointegrador.model.Incidente;
 import com.equipo10.projectointegrador.model.RazonSocial;
 import com.equipo10.projectointegrador.model.Rol;
 import com.equipo10.projectointegrador.model.Servicio;
@@ -10,6 +11,7 @@ import com.equipo10.projectointegrador.model.Tecnico;
 import com.equipo10.projectointegrador.model.Tipo;
 import com.equipo10.projectointegrador.model.Usuario;
 import com.equipo10.projectointegrador.view.Login;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,20 +73,22 @@ public class Main {
         controller.crearTipo(tipo);
         controller.crearTipo(tipo2);
         //Tecnicos Por Default
-        List.of(
+        List<Tecnico>tecnicos=List.of(
                 new Tecnico("Pepe", especialidades.get(1), "ASD@123", "1234"),
                 new Tecnico("Lucas", especialidades.get(3), "BCD@123", "325"),
                 new Tecnico("Rodri", especialidades.get(0), "HHH@123", "124"),
                 new Tecnico("Seba", especialidades.get(6), "5SDS@123", "111134"),
                 new Tecnico("Armando", especialidades.get(7), "ALBU@123", "3352234")
-        )
-                .stream()
+        );
+                tecnicos.stream()
                 .forEach(c -> controller.crearTecnico(c));
 
         //Cliente Default
         Cliente cli = new Cliente(razonesSociales.get(0), "1", "ALex@333");
         controller.crearCliente(cli);
-
+        //Incidente Default
+        Incidente inci=new  Incidente("Pantallazo Azul", tipo, 5, LocalDateTime.now(), null, cli, tecnicos.get(0), false);
+        controller.crearIncidente(inci);
         //Login de acceso--------------------
         //CREDENCIALES admin-admin / rrhh-rrhh / comercial-comercial / ayuda-ayuda  SON 4 TIPOS DE USUARIOS
         Login login = new Login(controller);
