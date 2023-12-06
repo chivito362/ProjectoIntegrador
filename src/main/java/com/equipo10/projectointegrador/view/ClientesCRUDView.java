@@ -6,10 +6,10 @@ import com.equipo10.projectointegrador.model.RazonSocial;
 import javax.swing.JOptionPane;
 
 
-public class ClientesView extends javax.swing.JFrame {
+public class ClientesCRUDView extends javax.swing.JFrame {
 
     Controller control;
-    public ClientesView(Controller control) {
+    public ClientesCRUDView(Controller control) {
         initComponents();
         this.control = control;
         cargarCB();
@@ -227,10 +227,6 @@ public class ClientesView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscar1;
-    private javax.swing.JButton btnBuscar2;
-    private javax.swing.JButton btnBuscar3;
     private javax.swing.JButton btnBuscar4;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;

@@ -5,10 +5,10 @@ import com.equipo10.projectointegrador.model.Especialidad;
 import com.equipo10.projectointegrador.model.Tecnico;
 import javax.swing.JOptionPane;
 
-public class TecnicosView extends javax.swing.JFrame {
+public class TecnicosCRUDView extends javax.swing.JFrame {
 
     Controller control;
-    public TecnicosView(Controller control) {
+    public TecnicosCRUDView(Controller control) {
         initComponents();
         this.control = control;
         cargarCB();

@@ -222,11 +222,11 @@ public class Login extends javax.swing.JFrame {
             
             int acceso = comprobar_acceso(usuario);
                 switch(acceso){
-                    case 1: TecnicosView vista1=new TecnicosView(control); 
+                    case 1: TecnicosCRUDView vista1=new TecnicosCRUDView(control); 
                             vista1.setLocationRelativeTo(null);
                             vista1.setVisible(true);
                         break;
-                    case 2: ClientesView vista2=new ClientesView(control);
+                    case 2: ClientesCRUDView vista2=new ClientesCRUDView(control);
                             vista2.setLocationRelativeTo(null);
                             vista2.setVisible(true);
                         break;

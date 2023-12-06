@@ -127,7 +127,7 @@ public class IncidentesView extends javax.swing.JFrame {
         if (clienteEncontrado.isPresent()) {
             
             Cliente cliente = clienteEncontrado.get();
-            CargaIncidente ventana=new CargaIncidente(cliente,control);
+            IncidentesCRUDView ventana=new IncidentesCRUDView(cliente,control);
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
         } else {

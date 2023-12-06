@@ -76,7 +76,7 @@ public class AdminView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRHActionPerformed
-        TecnicosView ventana=new TecnicosView(control);
+        TecnicosCRUDView ventana=new TecnicosCRUDView(control);
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnRHActionPerformed
@@ -88,7 +88,7 @@ public class AdminView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMesaActionPerformed
 
     private void btnComerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComerActionPerformed
-        ClientesView ventana=new ClientesView(control);
+        ClientesCRUDView ventana=new ClientesCRUDView(control);
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnComerActionPerformed

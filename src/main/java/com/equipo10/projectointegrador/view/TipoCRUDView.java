@@ -2,10 +2,10 @@ package com.equipo10.projectointegrador.view;
 
 import com.equipo10.projectointegrador.controller.Controller;
 
-public class TipoView extends javax.swing.JFrame {
+public class TipoCRUDView extends javax.swing.JFrame {
 
     Controller control;
-    public TipoView(Controller control) {
+    public TipoCRUDView(Controller control) {
         initComponents();
         this.control = control;
     }
