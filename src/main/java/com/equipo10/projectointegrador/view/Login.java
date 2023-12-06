@@ -226,7 +226,9 @@ public class Login extends javax.swing.JFrame {
                             vista1.setLocationRelativeTo(null);
                             vista1.setVisible(true);
                         break;
-                    case 2: //Area Comercial
+                    case 2: ClientesView vista2=new ClientesView(control);
+                            vista2.setLocationRelativeTo(null);
+                            vista2.setVisible(true);
                         break;
                     case 3://Vista Mesa Auyuda
                         break;

@@ -202,7 +202,8 @@ public class TecnicosView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-       String nombre= txtNombre.getText();
+       if(!txtBuscar.getText().isEmpty()){
+        String nombre= txtNombre.getText();
        String mail = txtMail.getText();
        String tel = txtTelefono.getText();
        Especialidad espe=(Especialidad) cbEspe.getSelectedItem();
@@ -211,6 +212,9 @@ public class TecnicosView extends javax.swing.JFrame {
         txtNombre.setText("");
         txtMail.setText("");
         txtTelefono.setText("");
+       }else{
+        JOptionPane.showMessageDialog(null, "se necesita el id para actualizar");
+    }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

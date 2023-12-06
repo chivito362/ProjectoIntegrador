@@ -11,6 +11,7 @@
     <class>com.equipo10.projectointegrador.model.Tipo</class>
     <class>com.equipo10.projectointegrador.model.LocalDateTimeAttributeConverter</class>
     <class>com.equipo10.projectointegrador.model.RazonSocial</class>
+    <class>com.equipo10.projectointegrador.model.Servicio</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tputn?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

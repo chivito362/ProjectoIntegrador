@@ -14,6 +14,7 @@ public class Servicio implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id_servicio;
     private String nombre;
+    
 
     public Servicio() {
     }

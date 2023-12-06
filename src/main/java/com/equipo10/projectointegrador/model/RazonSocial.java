@@ -1,4 +1,3 @@
-
 package com.equipo10.projectointegrador.model;
 
 import java.io.Serializable;
@@ -7,14 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class RazonSocial implements Serializable {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_razon;
     private String nombre;
-    @OneToMany
+    @OneToOne
     private Servicio servicio;
 
     public RazonSocial() {
@@ -52,10 +53,7 @@ public class RazonSocial implements Serializable {
 
     @Override
     public String toString() {
-        return "RazonSocial{" + "id_razon=" + id_razon + ", nombre=" + nombre + ", servicio=" + servicio + '}';
+        return nombre;
     }
 
-    
-    
-    
 }

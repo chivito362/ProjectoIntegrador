@@ -1,7 +1,9 @@
 package com.equipo10.projectointegrador.view;
 
 import com.equipo10.projectointegrador.controller.Controller;
+import com.equipo10.projectointegrador.model.Cliente;
 import com.equipo10.projectointegrador.model.RazonSocial;
+import javax.swing.JOptionPane;
 
 
 public class ClientesView extends javax.swing.JFrame {
@@ -32,6 +34,11 @@ public class ClientesView extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         cbRS = new javax.swing.JComboBox<>();
+        txtMail = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        btnBuscar4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +76,17 @@ public class ClientesView extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Mail");
+
+        jLabel7.setText("Busqueda por ID:");
+
+        btnBuscar4.setText("Buscar");
+        btnBuscar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscar4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -85,13 +103,26 @@ public class ClientesView extends javax.swing.JFrame {
                             .addGap(35, 35, 35)
                             .addComponent(btnEliminar))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(txtCuit)
-                                .addComponent(cbRS, 0, 115, Short.MAX_VALUE)))))
-                .addGap(0, 132, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(6, 6, 6)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnBuscar4)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtCuit)
+                                    .addComponent(cbRS, 0, 115, Short.MAX_VALUE)
+                                    .addComponent(txtMail))))))
+                .addGap(0, 114, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalir)
@@ -110,7 +141,16 @@ public class ClientesView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscar4)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnActualizar)
@@ -138,39 +178,60 @@ public class ClientesView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String nombre= txtNombre.getText();
-        String mail = txtMail.getText();
-        String tel = txtTelefono.getText();
-        Especialidad espe=(Especialidad) cbEspe.getSelectedItem();
-        control.crearTecnico(new Tecnico(nombre, espe, mail, tel));
-        JOptionPane.showMessageDialog(null, "Tecnico Creado");
-        txtNombre.setText("");
+        String cuit=txtCuit.getText();
+        RazonSocial rs=(RazonSocial) cbRS.getSelectedItem();
+        String mail=txtMail.getText();
+        control.crearCliente(new Cliente(rs, cuit, mail));
+        JOptionPane.showMessageDialog(null, "Cliente Creado");
+        txtCuit.setText("");
         txtMail.setText("");
-        txtTelefono.setText("");
+        cbRS.setSelectedItem(null);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        String cuit= txtCuit.getText();
+        if(!txtBuscar.getText().isEmpty()){
+        String cuit=txtCuit.getText();
         RazonSocial rs=(RazonSocial) cbRS.getSelectedItem();
-        control.editarTecnico(new Tecnico(Integer.valueOf(txtBuscar.getText()),nombre, espe, mail, tel));
-        JOptionPane.showMessageDialog(null, "Tecnico Actualizado");
-        txtNombre.setText("");
+        String mail=txtMail.getText();
+        control.editarCliente(new Cliente(Integer.valueOf(txtBuscar.getText()),rs, cuit, mail));
+        JOptionPane.showMessageDialog(null, "Cliente Actualizado");
+        txtCuit.setText("");
         txtMail.setText("");
-        txtTelefono.setText("");
+        cbRS.setSelectedItem(null);
+        }else{
+            JOptionPane.showMessageDialog(null, "se necesita el id para actualizar");
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        //control.borrarCliente(Integer.valueOf(txtBuscar.getText()));
+        if(!txtBuscar.getText().isEmpty()){
+        control.borrarCliente(Integer.valueOf(txtBuscar.getText()));
+        JOptionPane.showMessageDialog(null, "Cliente Eliminado");
+        }else{
+            JOptionPane.showMessageDialog(null, "se necesita el id para elimiar");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnBuscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar4ActionPerformed
+        Cliente cli=control.traerCliente(Integer.valueOf(txtBuscar.getText()));
+        txtCuit.setText(cli.getCuit());
+        txtMail.setText(cli.getMail());
+        cbRS.setSelectedIndex(recorrerCB(cli.getRazonSocial()));
+    }//GEN-LAST:event_btnBuscar4ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscar1;
+    private javax.swing.JButton btnBuscar2;
+    private javax.swing.JButton btnBuscar3;
+    private javax.swing.JButton btnBuscar4;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
@@ -178,11 +239,23 @@ public class ClientesView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCuit;
+    private javax.swing.JTextField txtMail;
     // End of variables declaration//GEN-END:variables
 
     private void cargarCB() {
         control.traerTodasLasRazonesSociales().stream().forEach(r->cbRS.addItem(r));
+    }
+    private int recorrerCB(RazonSocial rs){
+        for(int i=0;i<cbRS.getItemCount();i++){
+            if(cbRS.getItemAt(i).getId_razon()  == rs.getId_razon()){
+                return i;
+            }
+        }
+        return -1;
     }
 }
