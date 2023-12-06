@@ -12,7 +12,6 @@ C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\c
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\model\LocalDateTimeAttributeConverter.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\controller\exceptions\IllegalOrphanException.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\model\Tipo.java
-C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\view\RolView.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\controller\Controller.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\controller\EspecialidadJpaController.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\model\Usuario.java
@@ -20,3 +19,4 @@ C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\c
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\model\Cliente.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\controller\RolJpaController.java
 C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\model\Tecnico.java
+C:\Users\Sebastian\Documents\NetBeansProjects\ProjectoIntegrador\src\main\java\com\equipo10\projectointegrador\view\Login.java

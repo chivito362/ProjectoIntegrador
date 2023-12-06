@@ -16,6 +16,8 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private int id_user;
+    private String user;
+    private String pw;
     @JoinColumn(name="ROL")
     @OneToOne
     private Rol id_rol;
@@ -23,15 +25,23 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Rol id_rol) {
+    public Usuario(int id_user, String user, String pw, Rol id_rol) {
+        this.id_user = id_user;
+        this.user = user;
+        this.pw = pw;
         this.id_rol = id_rol;
     }
 
-    public Usuario(int id_user, Rol id_rol) {
-        this.id_user = id_user;
+    public Usuario(String user, String pw, Rol id_rol) {
+        this.user = user;
+        this.pw = pw;
         this.id_rol = id_rol;
     }
-    
+
+    public Usuario(String user, String pw) {
+        this.user = user;
+        this.pw = pw;
+    }
 
     public int getId_user() {
         return id_user;
@@ -41,6 +51,22 @@ public class Usuario implements Serializable {
         this.id_user = id_user;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
     public Rol getId_rol() {
         return id_rol;
     }
@@ -48,6 +74,13 @@ public class Usuario implements Serializable {
     public void setId_rol(Rol id_rol) {
         this.id_rol = id_rol;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id_user=" + id_user + ", user=" + user + ", pw=" + pw + ", id_rol=" + id_rol + '}';
+    }
+
+    
     
     
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.equipo10.projectointegrador.controller;
 
 import com.equipo10.projectointegrador.controller.exceptions.NonexistentEntityException;
@@ -16,22 +12,18 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author Sebastian
- */
 public class UsuarioJpaController implements Serializable {
 
     public UsuarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    public UsuarioJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("TPUTNJPAPU");
-    }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    public UsuarioJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("TPUTNJPAPU");
     }
 
     public void create(Usuario usuario) {
