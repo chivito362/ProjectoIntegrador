@@ -2,10 +2,12 @@
 package com.equipo10.projectointegrador.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +17,7 @@ public class Especialidad implements Serializable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private int id_especialidad;
     private String nombre;
+    
 
     public Especialidad() {
     }
@@ -49,6 +52,7 @@ public class Especialidad implements Serializable {
     public String toString() {
         return nombre;
     }
+
     
     
 }

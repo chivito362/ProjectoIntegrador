@@ -234,7 +234,9 @@ public class Login extends javax.swing.JFrame {
                             vista3.setLocationRelativeTo(null);
                             vista3.setVisible(true);
                         break;
-                    case 4: //Vista admin
+                    case 4: AdminView vista4=new AdminView(control);
+                            vista4.setLocationRelativeTo(null);
+                            vista4.setVisible(true);
                         break;
                     default: JOptionPane.showConfirmDialog(null, "Error de acceso");
                 }

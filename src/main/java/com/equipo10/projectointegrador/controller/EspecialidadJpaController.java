@@ -28,6 +28,7 @@ public class EspecialidadJpaController implements Serializable {
     public EspecialidadJpaController() {
         this.emf = Persistence.createEntityManagerFactory("TPUTNJPAPU");
     }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
