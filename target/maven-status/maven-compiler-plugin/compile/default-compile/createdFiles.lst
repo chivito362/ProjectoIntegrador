@@ -39,6 +39,7 @@ com\equipo10\projectointegrador\model\Incidente.class
 com\equipo10\projectointegrador\view\TecnicosCRUDView$2.class
 com\equipo10\projectointegrador\view\Login$9.class
 com\equipo10\projectointegrador\view\ClienteView.class
+com\equipo10\projectointegrador\view\AdminView$5.class
 com\equipo10\projectointegrador\view\ClientesCRUDView$1.class
 com\equipo10\projectointegrador\view\TecnicosCRUDView$5.class
 com\equipo10\projectointegrador\model\Rol.class
@@ -54,6 +55,7 @@ com\equipo10\projectointegrador\view\AdminView.class
 com\equipo10\projectointegrador\view\ClientesCRUDView$5.class
 com\equipo10\projectointegrador\view\Login$5.class
 com\equipo10\projectointegrador\view\Login.class
+com\equipo10\projectointegrador\view\TecnicoView.class
 com\equipo10\projectointegrador\view\AdminView$3.class
 com\equipo10\projectointegrador\view\Login$8.class
 com\equipo10\projectointegrador\controller\EspecialidadJpaController.class
