@@ -9,12 +9,15 @@ com\equipo10\projectointegrador\view\TecnicosView$3.class
 com\equipo10\projectointegrador\controller\exceptions\NonexistentEntityException.class
 com\equipo10\projectointegrador\view\ClientesView$3.class
 com\equipo10\projectointegrador\view\IncidentesView$1.class
+com\equipo10\projectointegrador\model\AdminView$3.class
 com\equipo10\projectointegrador\controller\TipoJpaController.class
 com\equipo10\projectointegrador\view\TecnicosView.class
 com\equipo10\projectointegrador\model\LocalDateTimeAttributeConverter.class
 com\equipo10\projectointegrador\Main.class
 com\equipo10\projectointegrador\view\Login$3.class
 com\equipo10\projectointegrador\controller\IncidenteJpaController.class
+com\equipo10\projectointegrador\model\AdminView.class
+com\equipo10\projectointegrador\model\AdminView$1.class
 com\equipo10\projectointegrador\view\ClientesView$1.class
 com\equipo10\projectointegrador\controller\UsuarioJpaController.class
 com\equipo10\projectointegrador\view\IncidentesView$2.class
@@ -53,4 +56,5 @@ com\equipo10\projectointegrador\view\TipoView.class
 com\equipo10\projectointegrador\controller\EspecialidadJpaController.class
 com\equipo10\projectointegrador\view\TecnicosView$4.class
 com\equipo10\projectointegrador\view\Login$2.class
+com\equipo10\projectointegrador\model\AdminView$2.class
 com\equipo10\projectointegrador\model\Servicio.class

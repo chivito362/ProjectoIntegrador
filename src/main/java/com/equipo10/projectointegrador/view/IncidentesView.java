@@ -128,6 +128,8 @@ public class IncidentesView extends javax.swing.JFrame {
             
             Cliente cliente = clienteEncontrado.get();
             CargaIncidente ventana=new CargaIncidente(cliente,control);
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
         } else {
             JOptionPane.showMessageDialog(null, "No existe cliente con esos Datos");
         }
