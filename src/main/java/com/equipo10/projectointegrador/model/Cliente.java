@@ -1,7 +1,7 @@
-
 package com.equipo10.projectointegrador.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +17,7 @@ public class Cliente implements Serializable {
     private int id_cliente;
     @ManyToOne
     private RazonSocial razonSocial;
+    @Column(unique = true)
     private String cuit;
     private String mail;
 
@@ -70,7 +71,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id_cliente=" + id_cliente + ", razonSocial=" + razonSocial + ", cuit=" + cuit + ", mail=" + mail + '}';
+        return id_cliente+"";
     }
     
     

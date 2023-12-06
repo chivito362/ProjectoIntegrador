@@ -192,7 +192,7 @@ public class IncidentesCRUDView extends javax.swing.JFrame {
             Tipo tipo = (Tipo) cbTIPO.getSelectedItem();
             double TiempoEstimado = Double.valueOf(txtTiempoEstimado.getText());
             if (tecnico != null && !descripcion.isEmpty() && tipo != null && TiempoEstimado != 0.0) {
-                Incidente inci=new Incidente(descripcion, tipo, TiempoEstimado, LocalDateTime.now(),null, cli, tecnico);
+                Incidente inci=new Incidente(descripcion, tipo, TiempoEstimado, LocalDateTime.now(),null, cli, tecnico,false);
                 control.crearIncidente(inci);
                 JOptionPane.showMessageDialog(null, "Incidente Cargado");
             }

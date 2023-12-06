@@ -24,6 +24,10 @@ public class AdminView extends javax.swing.JFrame {
         btnRH = new javax.swing.JButton();
         btnMesa = new javax.swing.JButton();
         btnComer = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        btnCliente = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +52,23 @@ public class AdminView extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("Vistas");
+
+        btnCliente.setText("Cliente");
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnCliente);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,7 +90,7 @@ public class AdminView extends javax.swing.JFrame {
                     .addComponent(btnRH)
                     .addComponent(btnMesa)
                     .addComponent(btnComer))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
@@ -93,10 +114,20 @@ public class AdminView extends javax.swing.JFrame {
         ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnComerActionPerformed
 
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+        ClienteView ventana=new ClienteView(control);
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnClienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnCliente;
     private javax.swing.JButton btnComer;
     private javax.swing.JButton btnMesa;
     private javax.swing.JButton btnRH;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

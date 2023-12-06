@@ -33,11 +33,11 @@ public class Incidente implements Serializable {
     private Cliente cliente;
     @OneToOne
     private Tecnico tecnico;
-
+    private boolean estado;
     public Incidente() {
     }
 
-    public Incidente(int id_incidente, String descripcion, Tipo tipo, double tiempo_estimado, LocalDateTime fechaInicio, LocalDateTime fechaFin, Cliente cliente, Tecnico tecnico) {
+    public Incidente(int id_incidente, String descripcion, Tipo tipo, double tiempo_estimado, LocalDateTime fechaInicio, LocalDateTime fechaFin, Cliente cliente, Tecnico tecnico, boolean estado) {
         this.id_incidente = id_incidente;
         this.descripcion = descripcion;
         this.tipo = tipo;
@@ -46,9 +46,10 @@ public class Incidente implements Serializable {
         this.fechaFin = fechaFin;
         this.cliente = cliente;
         this.tecnico = tecnico;
+        this.estado = estado;
     }
 
-    public Incidente(String descripcion, Tipo tipo, double tiempo_estimado, LocalDateTime fechaInicio, LocalDateTime fechaFin, Cliente cliente, Tecnico tecnico) {
+    public Incidente(String descripcion, Tipo tipo, double tiempo_estimado, LocalDateTime fechaInicio, LocalDateTime fechaFin, Cliente cliente, Tecnico tecnico, boolean estado) {
         this.descripcion = descripcion;
         this.tipo = tipo;
         this.tiempo_estimado = tiempo_estimado;
@@ -56,9 +57,10 @@ public class Incidente implements Serializable {
         this.fechaFin = fechaFin;
         this.cliente = cliente;
         this.tecnico = tecnico;
+        this.estado = estado;
     }
 
-    public Incidente(int id_incidente, String descripcion, Tipo tipo, double tiempo_estimado, LocalDateTime fechaInicio, Cliente cliente, Tecnico tecnico) {
+    public Incidente(int id_incidente, String descripcion, Tipo tipo, double tiempo_estimado, LocalDateTime fechaInicio, Cliente cliente, Tecnico tecnico, boolean estado) {
         this.id_incidente = id_incidente;
         this.descripcion = descripcion;
         this.tipo = tipo;
@@ -66,7 +68,18 @@ public class Incidente implements Serializable {
         this.fechaInicio = fechaInicio;
         this.cliente = cliente;
         this.tecnico = tecnico;
+        this.estado = estado;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
 
     public int getId_incidente() {
         return id_incidente;
