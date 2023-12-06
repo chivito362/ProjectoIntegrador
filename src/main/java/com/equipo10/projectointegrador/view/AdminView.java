@@ -19,10 +19,11 @@ public class AdminView extends javax.swing.JFrame {
         btnRH = new javax.swing.JButton();
         btnMesa = new javax.swing.JButton();
         btnComer = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnTecnicos = new javax.swing.JMenu();
         btnCliente = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnTec = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,6 +49,13 @@ public class AdminView extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         btnTecnicos.setText("Vistas");
         btnTecnicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,12 +71,17 @@ public class AdminView extends javax.swing.JFrame {
         });
         btnTecnicos.add(btnCliente);
 
-        jMenuItem1.setText("Tecnico");
-        btnTecnicos.add(jMenuItem1);
+        btnTec.setText("Tecnicos");
+        btnTec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTecActionPerformed(evt);
+            }
+        });
+        btnTecnicos.add(btnTec);
 
         jMenuBar1.add(btnTecnicos);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Estadisticas");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -85,6 +98,10 @@ public class AdminView extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(btnComer)
                 .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +111,9 @@ public class AdminView extends javax.swing.JFrame {
                     .addComponent(btnRH)
                     .addComponent(btnMesa)
                     .addComponent(btnComer))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -125,10 +144,18 @@ public class AdminView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnTecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTecnicosActionPerformed
+        
+    }//GEN-LAST:event_btnTecnicosActionPerformed
+
+    private void btnTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTecActionPerformed
         TecnicoView ventana1=new TecnicoView(control);
         ventana1.setVisible(true);
         ventana1.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnTecnicosActionPerformed
+    }//GEN-LAST:event_btnTecActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -136,9 +163,10 @@ public class AdminView extends javax.swing.JFrame {
     private javax.swing.JButton btnComer;
     private javax.swing.JButton btnMesa;
     private javax.swing.JButton btnRH;
+    private javax.swing.JMenuItem btnTec;
     private javax.swing.JMenu btnTecnicos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
