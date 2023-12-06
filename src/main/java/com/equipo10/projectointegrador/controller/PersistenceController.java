@@ -4,7 +4,9 @@ import com.equipo10.projectointegrador.controller.exceptions.NonexistentEntityEx
 import com.equipo10.projectointegrador.model.Cliente;
 import com.equipo10.projectointegrador.model.Especialidad;
 import com.equipo10.projectointegrador.model.Incidente;
+import com.equipo10.projectointegrador.model.RazonSocial;
 import com.equipo10.projectointegrador.model.Rol;
+import com.equipo10.projectointegrador.model.Servicio;
 import com.equipo10.projectointegrador.model.Tecnico;
 import com.equipo10.projectointegrador.model.Tipo;
 import com.equipo10.projectointegrador.model.Usuario;
@@ -21,7 +23,9 @@ public class PersistenceController {
     TipoJpaController tipoJPA = new TipoJpaController();
     IncidenteJpaController inciJPA = new IncidenteJpaController();
     EspecialidadJpaController espeJPA = new EspecialidadJpaController();
-
+    RazonSocialJpaController razoJPA=new RazonSocialJpaController();
+    ServicioJpaController serviJPA=new ServicioJpaController();
+    
     // Métodos para la entidad Rol
     void crearRol(Rol rol) {
         rolJPA.create(rol);
@@ -121,6 +125,32 @@ public class PersistenceController {
             ex.printStackTrace();
         }
     }
+    
+    //Métodos para la entidad RazonSocial
+    void crearRazonSocial(RazonSocial razonSocial) {
+        razoJPA.create(razonSocial);
+    }
+
+    RazonSocial traerRazonSocial(int id) {
+        return razoJPA.findRazonSocial(id);
+    }
+
+    void borrarRazonSocial(int id) {
+        try {
+            razoJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void editarRazonSocial(RazonSocial razonSocial) {
+        try {
+            razoJPA.edit(razonSocial);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
     // Métodos para la entidad Tipo
     void crearTipo(Tipo tipo) {
@@ -196,6 +226,31 @@ public class PersistenceController {
             ex.printStackTrace();
         }
     }
+    // Métodos para la entidad Servicio
+     void crearServicio(Servicio servicio) {
+        serviJPA.create(servicio);
+    }
+
+    Servicio traerServicio(int id) {
+        return serviJPA.findServicio(id);
+    }
+
+    void borrarServicio(int id) {
+        try {
+            serviJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void editarServicio(Servicio servicio) {
+        try {
+            serviJPA.edit(servicio);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     
     //Traer TODOS
     List<Rol> traerTodosRoles() {
@@ -224,5 +279,11 @@ public class PersistenceController {
 
     List<Usuario> traerTodosUsuarios() {
         return usuJPA.findUsuarioEntities();
+    }
+    List<RazonSocial> traerTodasLasRazonesSociales() {
+        return razoJPA.findRazonSocialEntities();
+    }
+    List<Servicio> traerTodosLosServicios() {
+        return serviJPA.findServicioEntities();
     }
 }

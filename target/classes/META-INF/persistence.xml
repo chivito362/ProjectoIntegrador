@@ -10,12 +10,13 @@
     <class>com.equipo10.projectointegrador.model.Tecnico</class>
     <class>com.equipo10.projectointegrador.model.Tipo</class>
     <class>com.equipo10.projectointegrador.model.LocalDateTimeAttributeConverter</class>
+    <class>com.equipo10.projectointegrador.model.RazonSocial</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tputn?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value=""/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

@@ -2,7 +2,9 @@ package com.equipo10.projectointegrador;
 
 import com.equipo10.projectointegrador.controller.Controller;
 import com.equipo10.projectointegrador.model.Especialidad;
+import com.equipo10.projectointegrador.model.RazonSocial;
 import com.equipo10.projectointegrador.model.Rol;
+import com.equipo10.projectointegrador.model.Servicio;
 import com.equipo10.projectointegrador.model.Usuario;
 import com.equipo10.projectointegrador.view.Login;
 import java.util.List;
@@ -36,7 +38,20 @@ public class Main {
 //                new Especialidad("MacOS")
 //        );
 //        especialidades.stream().forEach(esp -> controller.crearEspecialidad(esp));
-
+         //Crear Servicios---------------
+         List<Servicio> servicios=List.of(
+                 new Servicio(1, "Software y Gestion"),
+                 new Servicio(2, "Administracion y Sistemas"),
+                 new Servicio(3, "SO.Aplicaciones")
+         );
+         servicios.stream().forEach(s->controller.crearServicio(s));
+          //Crear RazonSocial--------------
+          List<RazonSocial> razonesSociales=List.of(
+          new RazonSocial(1, "Omni Services", servicios.get(0)),
+          new RazonSocial(2, "Aplications QA", servicios.get(2)),
+          new RazonSocial(3, "Sistematics IO", servicios.get(1))
+          );
+          razonesSociales.stream().forEach(r->controller.crearRazonSocial(r));
         //Login de acceso--------------------
         Login login = new Login(controller);
         login.setVisible(true);

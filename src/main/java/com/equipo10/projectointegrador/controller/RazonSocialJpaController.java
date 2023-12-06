@@ -5,7 +5,7 @@
 package com.equipo10.projectointegrador.controller;
 
 import com.equipo10.projectointegrador.controller.exceptions.NonexistentEntityException;
-import com.equipo10.projectointegrador.model.Cliente;
+import com.equipo10.projectointegrador.model.RazonSocial;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -20,26 +20,26 @@ import javax.persistence.criteria.Root;
  *
  * @author Sebastian
  */
-public class ClienteJpaController implements Serializable {
+public class RazonSocialJpaController implements Serializable {
 
-    public ClienteJpaController(EntityManagerFactory emf) {
+    public RazonSocialJpaController(EntityManagerFactory emf) {
         this.emf = emf;
+    }
+    public RazonSocialJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("TPUTNJPAPU");
     }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    public ClienteJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("TPUTNJPAPU");
-    }
 
-    public void create(Cliente cliente) {
+    public void create(RazonSocial razonSocial) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(cliente);
+            em.persist(razonSocial);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -48,19 +48,19 @@ public class ClienteJpaController implements Serializable {
         }
     }
 
-    public void edit(Cliente cliente) throws NonexistentEntityException, Exception {
+    public void edit(RazonSocial razonSocial) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            cliente = em.merge(cliente);
+            razonSocial = em.merge(razonSocial);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = cliente.getId_cliente();
-                if (findCliente(id) == null) {
-                    throw new NonexistentEntityException("The cliente with id " + id + " no longer exists.");
+                int id = razonSocial.getId_razon();
+                if (findRazonSocial(id) == null) {
+                    throw new NonexistentEntityException("The razonSocial with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -76,14 +76,14 @@ public class ClienteJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Cliente cliente;
+            RazonSocial razonSocial;
             try {
-                cliente = em.getReference(Cliente.class, id);
-                cliente.getId_cliente();
+                razonSocial = em.getReference(RazonSocial.class, id);
+                razonSocial.getId_razon();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The cliente with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The razonSocial with id " + id + " no longer exists.", enfe);
             }
-            em.remove(cliente);
+            em.remove(razonSocial);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -92,19 +92,19 @@ public class ClienteJpaController implements Serializable {
         }
     }
 
-    public List<Cliente> findClienteEntities() {
-        return findClienteEntities(true, -1, -1);
+    public List<RazonSocial> findRazonSocialEntities() {
+        return findRazonSocialEntities(true, -1, -1);
     }
 
-    public List<Cliente> findClienteEntities(int maxResults, int firstResult) {
-        return findClienteEntities(false, maxResults, firstResult);
+    public List<RazonSocial> findRazonSocialEntities(int maxResults, int firstResult) {
+        return findRazonSocialEntities(false, maxResults, firstResult);
     }
 
-    private List<Cliente> findClienteEntities(boolean all, int maxResults, int firstResult) {
+    private List<RazonSocial> findRazonSocialEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Cliente.class));
+            cq.select(cq.from(RazonSocial.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -116,20 +116,20 @@ public class ClienteJpaController implements Serializable {
         }
     }
 
-    public Cliente findCliente(int id) {
+    public RazonSocial findRazonSocial(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Cliente.class, id);
+            return em.find(RazonSocial.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getClienteCount() {
+    public int getRazonSocialCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Cliente> rt = cq.from(Cliente.class);
+            Root<RazonSocial> rt = cq.from(RazonSocial.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

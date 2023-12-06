@@ -3,7 +3,9 @@ package com.equipo10.projectointegrador.controller;
 import com.equipo10.projectointegrador.model.Cliente;
 import com.equipo10.projectointegrador.model.Especialidad;
 import com.equipo10.projectointegrador.model.Incidente;
+import com.equipo10.projectointegrador.model.RazonSocial;
 import com.equipo10.projectointegrador.model.Rol;
+import com.equipo10.projectointegrador.model.Servicio;
 import com.equipo10.projectointegrador.model.Tecnico;
 import com.equipo10.projectointegrador.model.Tipo;
 import com.equipo10.projectointegrador.model.Usuario;
@@ -131,7 +133,43 @@ public class Controller {
     public void editarEspecialidad(Especialidad especialidad) {
         controlPersis.editarEspecialidad(especialidad);
     }
-    
+    //Métodos para la entidad RazonSocial
+    public void crearRazonSocial(RazonSocial razonSocial) {
+        controlPersis.crearRazonSocial(razonSocial);
+    }
+
+    public RazonSocial traerRazonSocial(int id) {
+        return controlPersis.traerRazonSocial(id);
+    }
+
+    public void borrarRazonSocial(int id) {
+        controlPersis.borrarRazonSocial(id);
+    }
+
+    public void editarRazonSocial(RazonSocial razonSocial) {
+        controlPersis.editarRazonSocial(razonSocial);
+    }
+    // Métodos para la entidad Servicio
+    public void crearServicio(Servicio servicio) {
+        controlPersis.crearServicio(servicio);
+    }
+
+    public Servicio traerServicio(int id) {
+        return controlPersis.traerServicio(id);
+    }
+
+    public void borrarServicio(int id) {
+        controlPersis.borrarServicio(id);
+    }
+
+    public void editarServicio(Servicio servicio) {
+        controlPersis.editarServicio(servicio);
+    }
+
+    // Método adicional para traer todos los servicios
+    public List<Servicio> traerTodosLosServicios() {
+        return controlPersis.traerTodosLosServicios();
+    }
     //Traer TODOS
     
     public List<Rol> traerTodosRoles() {
@@ -160,6 +198,9 @@ public class Controller {
 
     public List<Usuario> traerTodosUsuarios() {
         return controlPersis.traerTodosUsuarios();
+    }
+    public List<RazonSocial> traerTodasLasRazonesSociales() {
+        return controlPersis.traerTodasLasRazonesSociales();
     }
 
 }
