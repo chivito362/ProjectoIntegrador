@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-    Controller control = new Controller();
+    Controller control;
 
     public Login(Controller control) {
         initComponents();
@@ -221,9 +221,10 @@ public class Login extends javax.swing.JFrame {
         if (comprobar_datos(usuario, pw)) {
             
             int acceso = comprobar_acceso(usuario);
-            System.out.println(acceso);
                 switch(acceso){
-                    case 1: //RRHH
+                    case 1: TecnicosView vista1=new TecnicosView(control); 
+                            vista1.setLocationRelativeTo(null);
+                            vista1.setVisible(true);
                         break;
                     case 2: //Area Comercial
                         break;
@@ -233,7 +234,7 @@ public class Login extends javax.swing.JFrame {
                         break;
                     default: JOptionPane.showConfirmDialog(null, "Error de acceso");
                 }
-                
+                this.dispose();
             
         }else{
             JOptionPane.showMessageDialog(null, "Error Datos erroneos");
