@@ -52,7 +52,9 @@ public class Main {
           new RazonSocial(3, "Sistematics IO", servicios.get(1))
           );
           razonesSociales.stream().forEach(r->controller.crearRazonSocial(r));
+        
         //Login de acceso--------------------
+        //CREDENCIALES admin-admin / rrhh-rrhh / comercial-comercial / ayuda-ayuda  SON 4 TIPOS DE USUARIOS
         Login login = new Login(controller);
         login.setVisible(true);
         login.setLocationRelativeTo(null);
