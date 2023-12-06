@@ -2,20 +2,24 @@ package com.equipo10.projectointegrador.view;
 
 import com.equipo10.projectointegrador.controller.Controller;
 import com.equipo10.projectointegrador.model.Cliente;
+import com.equipo10.projectointegrador.model.Incidente;
+import com.equipo10.projectointegrador.model.Servicio;
 import com.equipo10.projectointegrador.model.Tecnico;
 import com.equipo10.projectointegrador.model.Tipo;
-
+import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
 
 public class CargaIncidente extends javax.swing.JFrame {
 
     private Cliente cli;
     private Controller control;
-    public CargaIncidente(Cliente cli,Controller control) {
+
+    public CargaIncidente(Cliente cli, Controller control) {
         initComponents();
-        this.control=control;
-        this.cli=cli;        
+        this.control = control;
+        this.cli = cli;
         cargarCb();
-        
+
         txtCliente.setText(String.valueOf(cli.getId_cliente()));
     }
 
@@ -36,6 +40,8 @@ public class CargaIncidente extends javax.swing.JFrame {
         txtDescrip = new javax.swing.JTextPane();
         cbTIPO = new javax.swing.JComboBox<>();
         txtTiempoEstimado = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        cbServi = new javax.swing.JComboBox<>();
         btnCrear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,11 +56,21 @@ public class CargaIncidente extends javax.swing.JFrame {
 
         jLabel5.setText("Tecnico Sugerido");
 
+        txtCliente.setEditable(false);
+
         jScrollPane1.setViewportView(txtDescrip);
 
         cbTIPO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTIPOActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Servicios");
+
+        cbServi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbServiActionPerformed(evt);
             }
         });
 
@@ -66,26 +82,24 @@ public class CargaIncidente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTiempoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbTecnicos, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(45, 45, 45)
-                        .addComponent(cbTIPO, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(159, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbTIPO, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTiempoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbServi, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTecnicos, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,19 +108,23 @@ public class CargaIncidente extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(cbServi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cbTIPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtTiempoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
+                    .addComponent(txtTiempoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(cbTecnicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -125,19 +143,17 @@ public class CargaIncidente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnCrear)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCrear)
                 .addGap(0, 55, Short.MAX_VALUE))
         );
@@ -157,21 +173,36 @@ public class CargaIncidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        
-        Tecnico tecnico=(Tecnico)cbTecnicos.getSelectedItem();
-        String descripcion=txtDescrip.getText();
-        Tipo tipo=(Tipo) cbTIPO.getSelectedItem();
-        double TiempoEstimado=Double.valueOf(txtTiempoEstimado.getText());
+        try {
+            Tecnico tecnico = (Tecnico) cbTecnicos.getSelectedItem();
+            String descripcion = txtDescrip.getText();
+            Tipo tipo = (Tipo) cbTIPO.getSelectedItem();
+            double TiempoEstimado = Double.valueOf(txtTiempoEstimado.getText());
+            if (tecnico != null && !descripcion.isEmpty() && tipo != null && TiempoEstimado != 0.0) {
+                Incidente inci=new Incidente(descripcion, tipo, TiempoEstimado, LocalDateTime.now(),null, cli, tecnico);
+                control.crearIncidente(inci);
+                JOptionPane.showMessageDialog(null, "Incidente Cargado");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "El estimado no puede estar vacio ni contener letras");
+        }
+
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void cbTIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTIPOActionPerformed
-        Tipo tipo=(Tipo) cbTIPO.getSelectedItem();
+        Tipo tipo = (Tipo) cbTIPO.getSelectedItem();
         txtTiempoEstimado.setText(String.valueOf(tipo.getTiempo_max()));
+        CargaCBTEC();
     }//GEN-LAST:event_cbTIPOActionPerformed
+
+    private void cbServiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbServiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbServiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
+    private javax.swing.JComboBox<Servicio> cbServi;
     private javax.swing.JComboBox<Tipo> cbTIPO;
     private javax.swing.JComboBox<Tecnico> cbTecnicos;
     private javax.swing.JLabel jLabel1;
@@ -179,6 +210,7 @@ public class CargaIncidente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -188,7 +220,14 @@ public class CargaIncidente extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarCb() {
-        control.traerTodosTipos().stream().forEach(c->cbTIPO.addItem(c));
+        control.traerTodosTipos().stream().forEach(c -> cbTIPO.addItem(c));
+        cbServi.addItem(cli.getRazonSocial().getServicio());
+    }
+
+    private void CargaCBTEC() {
+        cbTecnicos.removeAllItems();
+        Tipo tipo = (Tipo) cbTIPO.getSelectedItem();
+        control.traerTodosTecnicos().stream().filter(tec -> tipo.getEspecialidadesPosibles().contains(tec.getEspecialidad())).forEach(tec -> cbTecnicos.addItem(tec));
     }
 
 }

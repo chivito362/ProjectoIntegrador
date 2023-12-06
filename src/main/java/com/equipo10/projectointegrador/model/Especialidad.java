@@ -3,6 +3,7 @@ package com.equipo10.projectointegrador.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -48,6 +49,32 @@ public class Especialidad implements Serializable {
         this.nombre = nombre;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + this.id_especialidad;
+        hash = 41 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Especialidad other = (Especialidad) obj;
+        if (this.id_especialidad != other.id_especialidad) {
+            return false;
+        }
+        return Objects.equals(this.nombre, other.nombre);
+    }
+    
     @Override
     public String toString() {
         return nombre;

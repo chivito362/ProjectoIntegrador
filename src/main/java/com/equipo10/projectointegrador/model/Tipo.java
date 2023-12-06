@@ -82,7 +82,7 @@ public class Tipo implements Serializable {
 
     @Override
     public String toString() {
-        return "Tipo{" + "id_tipo=" + id_tipo + ", nombre_problema=" + nombre_problema + ", tiempo_max=" + tiempo_max + ", especialidadesPosibles=" + especialidadesPosibles + '}';
+        return nombre_problema;
     }
     
     
