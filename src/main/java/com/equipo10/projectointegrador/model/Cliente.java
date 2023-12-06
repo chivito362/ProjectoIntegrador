@@ -67,6 +67,11 @@ public class Cliente implements Serializable {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id_cliente=" + id_cliente + ", razonSocial=" + razonSocial + ", cuit=" + cuit + ", mail=" + mail + '}';
+    }
     
     
 }

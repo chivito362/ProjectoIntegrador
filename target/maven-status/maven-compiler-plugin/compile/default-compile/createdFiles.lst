@@ -2,11 +2,13 @@ com\equipo10\projectointegrador\model\RazonSocial.class
 com\equipo10\projectointegrador\view\Login$4.class
 com\equipo10\projectointegrador\view\IncidentesView.class
 com\equipo10\projectointegrador\controller\Controller.class
+com\equipo10\projectointegrador\view\CargaIncidente$1.class
 com\equipo10\projectointegrador\view\Login$10.class
 com\equipo10\projectointegrador\view\Login$1.class
 com\equipo10\projectointegrador\view\TecnicosView$3.class
 com\equipo10\projectointegrador\controller\exceptions\NonexistentEntityException.class
 com\equipo10\projectointegrador\view\ClientesView$3.class
+com\equipo10\projectointegrador\view\IncidentesView$1.class
 com\equipo10\projectointegrador\controller\TipoJpaController.class
 com\equipo10\projectointegrador\view\TecnicosView.class
 com\equipo10\projectointegrador\model\LocalDateTimeAttributeConverter.class
@@ -26,6 +28,7 @@ com\equipo10\projectointegrador\view\ClientesView$4.class
 com\equipo10\projectointegrador\model\Especialidad.class
 com\equipo10\projectointegrador\model\Tecnico.class
 com\equipo10\projectointegrador\controller\exceptions\PreexistingEntityException.class
+com\equipo10\projectointegrador\view\ClientesView$5.class
 com\equipo10\projectointegrador\view\ClientesView.class
 com\equipo10\projectointegrador\view\TecnicosView$5.class
 com\equipo10\projectointegrador\model\Incidente.class
@@ -43,6 +46,7 @@ com\equipo10\projectointegrador\view\Login$5.class
 com\equipo10\projectointegrador\view\Login.class
 com\equipo10\projectointegrador\view\TecnicosView$1.class
 com\equipo10\projectointegrador\view\Login$8.class
+com\equipo10\projectointegrador\view\CargaIncidente.class
 com\equipo10\projectointegrador\view\TipoView.class
 com\equipo10\projectointegrador\controller\EspecialidadJpaController.class
 com\equipo10\projectointegrador\view\TecnicosView$4.class

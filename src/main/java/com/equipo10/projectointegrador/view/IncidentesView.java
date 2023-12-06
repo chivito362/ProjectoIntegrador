@@ -1,11 +1,15 @@
 package com.equipo10.projectointegrador.view;
 
 import com.equipo10.projectointegrador.controller.Controller;
+import com.equipo10.projectointegrador.model.Cliente;
 import com.equipo10.projectointegrador.model.RazonSocial;
+import java.util.Optional;
+import javax.swing.JOptionPane;
 
 public class IncidentesView extends javax.swing.JFrame {
 
     Controller control;
+
     public IncidentesView(Controller control) {
         initComponents();
         this.control = control;
@@ -23,8 +27,8 @@ public class IncidentesView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtCuit = new javax.swing.JTextField();
@@ -34,14 +38,19 @@ public class IncidentesView extends javax.swing.JFrame {
 
         jLabel1.setText("Carga De Incidentes");
 
-        jButton1.setText("Buscar Cliente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar Cliente");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Salir");
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Razon Social");
 
@@ -64,11 +73,11 @@ public class IncidentesView extends javax.swing.JFrame {
                                 .addComponent(txtCuit)
                                 .addComponent(cbRS, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)
-                            .addComponent(jButton1))
+                            .addComponent(btnBuscar))
                         .addGap(0, 119, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(btnSalir)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,9 +95,9 @@ public class IncidentesView extends javax.swing.JFrame {
                             .addComponent(txtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jButton4))
+                .addComponent(btnSalir))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,17 +117,31 @@ public class IncidentesView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cbRS.getSelectedItem();
-        
-        control.traerTodosClientes().stream().anyMatch(cli->cli.getCuit().equals(txtCuit.getText()));
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        RazonSocial rs = (RazonSocial) cbRS.getSelectedItem();
+
+        Optional<Cliente> clienteEncontrado = control.traerTodosClientes().stream()
+                .filter(cli -> cli.getCuit().equals(txtCuit.getText()) && cli.getRazonSocial().getId_razon() == rs.getId_razon())
+                .findFirst();
+
+        if (clienteEncontrado.isPresent()) {
+            
+            Cliente cliente = clienteEncontrado.get();
+            CargaIncidente ventana=new CargaIncidente(cliente,control);
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe cliente con esos Datos");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<RazonSocial> cbRS;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -126,15 +149,16 @@ public class IncidentesView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCuit;
     // End of variables declaration//GEN-END:variables
     private void cargarCB() {
-        control.traerTodasLasRazonesSociales().stream().forEach(r->cbRS.addItem(r));
+        control.traerTodasLasRazonesSociales().stream().forEach(r -> cbRS.addItem(r));
     }
-    private int recorrerCB(RazonSocial rs){
-        for(int i=0;i<cbRS.getItemCount();i++){
-            if(cbRS.getItemAt(i).getId_razon()  == rs.getId_razon()){
+
+    private int recorrerCB(RazonSocial rs) {
+        for (int i = 0; i < cbRS.getItemCount(); i++) {
+            if (cbRS.getItemAt(i).getId_razon() == rs.getId_razon()) {
                 return i;
             }
         }
         return -1;
     }
-    
+
 }
