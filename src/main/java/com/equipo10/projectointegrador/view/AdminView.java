@@ -25,6 +25,7 @@ public class AdminView extends javax.swing.JFrame {
         btnCliente = new javax.swing.JMenuItem();
         btnTec = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        btnEstadisticas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +83,15 @@ public class AdminView extends javax.swing.JFrame {
         jMenuBar1.add(btnTecnicos);
 
         jMenu2.setText("Estadisticas");
+
+        btnEstadisticas.setText("Estadisticas");
+        btnEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadisticasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(btnEstadisticas);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -157,10 +167,17 @@ public class AdminView extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasActionPerformed
+        EstadisticasView ventana=new EstadisticasView(control);
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnEstadisticasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnCliente;
     private javax.swing.JButton btnComer;
+    private javax.swing.JMenuItem btnEstadisticas;
     private javax.swing.JButton btnMesa;
     private javax.swing.JButton btnRH;
     private javax.swing.JMenuItem btnTec;
